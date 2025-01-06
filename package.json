@@ -21,7 +21,7 @@
   "homepage": "https://github.com/STT-VITI-22/stt-pz-5#readme",
   "devDependencies": {
     "browser-sync": "^2.27.5",
-    "cypress": "^10.9.0",
+    "cypress": "^10.11.0",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
@@ -35,5 +35,8 @@
     "gulp-uglifyjs": "^0.6.2",
     "imagemin-pngquant": "^9.0.2",
     "sass": "^1.41.1"
+  },
+  "dependencies": {
+    "meow": "^13.2.0"
   }
 }

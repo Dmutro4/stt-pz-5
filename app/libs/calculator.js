@@ -22,8 +22,13 @@ function printDigit(val) {
 }
 
 function solve() {
-  let expression = dashboard.value
-  dashboard.value = math.evaluate(expression)
+  let expression = dashboard.value;
+  try {
+    dashboard.value = math.evaluate(expression);
+  } catch (e) {
+    dashboard.value = "Error";
+    console.error("Invalid mathematical expression");
+  }
 }
 
 function clr() {
@@ -49,11 +54,23 @@ function toggleTheme() {
 }
 
 function save() {
-  localStorage.setItem('result', dashboard.value);
+  const dashboard = document.getElementById("dashboard");
+  console.log('Dashboard value:', dashboard.value); // Додаємо логування
+  if (dashboard && dashboard.value.trim() !== '') {
+    localStorage.setItem('result', dashboard.value);
+    console.log('Saved to localStorage:', dashboard.value); // Додаємо логування
+  } else {
+    console.error("Dashboard is empty. Nothing to save.");
+  }
 }
 
 function paste() {
-  printDigit(localStorage.getItem('result'))
+  const savedValue = localStorage.getItem('result');
+  if (savedValue) {
+    printDigit(savedValue);
+  } else {
+    console.error("No saved value in localStorage under the key 'result'");
+  }
 }
 
 
